@@ -92,13 +92,18 @@ OTHER DEALINGS IN THE SOFTWARE.
 				$('<div></div>').addClass(settings.containerClass).insertBefore(wrapper).append(wrapper);
 			}
 
+			if (tb.outerHeight() > settings.height) {
+				wrapper.addClass('tablescroll_scrollable');
+			}
+
 			var width = settings.width ? settings.width : tb.outerWidth();
 
 			wrapper.css
 			({
 				'width': width+'px',
 				'height': settings.height+'px',
-				'overflow': 'auto'
+				'overflow-x': 'hidden',
+				'overflow-y': 'auto'
 			});
 
 			tb.css('width',width+'px');
@@ -108,7 +113,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 			var diff = wrapper_width-width;
 
 			// assume table will scroll
-			wrapper.css({width:((width-diff)+settings.scrollbarWidth)+'px'});
+			wrapper.css({width:(width-diff)+'px'});
 			tb.css('width',(width-diff)+'px');
 
 			if (tb.outerHeight() <= settings.height)
