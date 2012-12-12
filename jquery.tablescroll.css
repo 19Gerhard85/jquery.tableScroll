@@ -30,3 +30,7 @@
 
 .tablescroll tfoot td
 { border-right:0; border-bottom:0; }
+
+.tablescroll_scrollable .tablescroll_body tbody td:last-child {
+  padding-right: 20px;
+}
